@@ -13,7 +13,7 @@ export function recordsFrom(payload) {
 }
 
 export async function fetchCollection(endpoint, signal) {
-  const response = await fetch(`${API_BASE_URL}/api/${endpoint}/`, { signal });
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, { signal });
   if (!response.ok) throw new Error(`Unable to load ${endpoint} (${response.status})`);
   return recordsFrom(await response.json());
 }
